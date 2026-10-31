@@ -1,9 +1,9 @@
 (() => {
-const book=document.getElementById('book'),openButton=document.getElementById('open-card'),closeButton=document.getElementById('close-card'),invitation=document.getElementById('invitation'),hint=document.getElementById('hint'),announcement=document.getElementById('announcement'),popup=document.getElementById('info-popup'),popupClose=popup.querySelector('.popup-close');
+const book=document.getElementById('book'),openButton=document.getElementById('open-card'),closeButton=document.getElementById('close-card'),invitation=document.getElementById('invitation'),hint=document.getElementById('hint'),announcement=document.getElementById('announcement'),popup=document.getElementById('info-popup'),tapHint=document.getElementById('tap-hint'),popupClose=popup.querySelector('.popup-close');
 let activeTrigger=null;
 function setOpen(open){
 book.classList.toggle('open',open);document.body.classList.toggle('is-open',open);
-openButton.setAttribute('aria-expanded',String(open));invitation.setAttribute('aria-hidden',String(!open));invitation.inert=!open;openButton.tabIndex=open?-1:0;closeButton.hidden=!open;hint.hidden=open;
+openButton.setAttribute('aria-expanded',String(open));invitation.setAttribute('aria-hidden',String(!open));invitation.inert=!open;openButton.tabIndex=open?-1:0;closeButton.hidden=!open;hint.hidden=open;tapHint.hidden=!open;
 if(open){closeButton.focus({preventScroll:true});openButton.setAttribute('aria-hidden','true');}else{openButton.removeAttribute('aria-hidden');openButton.focus({preventScroll:true});}
 announcement.textContent=open?'초대카드가 열렸습니다. 밑줄이 있는 도심 캠프, 새로운 캠퍼의 소식, 인더우드를 누르면 자세한 안내가 열립니다.':'';
 }
